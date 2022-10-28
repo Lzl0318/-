@@ -1,0 +1,21 @@
+namespace cotrain;
+
+attribute "limit";
+attribute "map";
+attribute "map_iterable";
+
+table CoTrain {
+    clients:[Client](map:"v2"); // 各客户端信息
+    globalmodel:Globalmodel; // Json格式存储的double数组
+    status:string;      // 当前全局状态："upload"、"download"
+}
+table Globalmodel{
+    model:string(limit: 1000000);
+}
+table Client{
+    upload:bool = false;        // 本轮协作是否已上传
+    download:bool = false;      // 本轮协作是否已下载
+    localmodel:string(limit:1000000); // Json格式存储的double数组
+}
+
+root_type CoTrain;

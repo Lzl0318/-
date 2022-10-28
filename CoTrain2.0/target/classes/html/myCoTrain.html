@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DarkPan - Bootstrap 5 Admin Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href ="favicon.ico" rel="shortcut icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"/>
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="myCoTrain" class="container-fluid position-relative d-flex p-0">
+  <!-- Spinner Start -->
+  <div id="spinner"
+       class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+
+  <!-- Sidebar Start -->
+  <div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-secondary navbar-dark">
+      <a href="myInit" class="navbar-brand mx-4 mb-3">
+        <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>CoTrain</h3>
+      </a>
+      <div class="d-flex align-items-center ms-4 mb-4">
+        <div class="ms-3">
+          <h6 class="mb-0"></h6>
+          <span></span>
+        </div>
+      </div>
+      <div class="navbar-nav w-100">
+        <a href="myInit" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Init</a>
+        <a href="myCoTrain" class="nav-item nav-link"><i class="fa fa-th me-2"></i>CoTrain</a>
+        <a href="myDebug" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Debug</a>
+        <a href="myInfo" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Info</a>
+      </div>
+    </nav>
+  </div>
+  <!-- Sidebar End -->
+
+
+  <!-- Content Start -->
+  <div class="content">
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+      <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+        <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+      </a>
+      <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+      </a>
+      <form class="d-none d-md-flex ms-4">
+        <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+      </form>
+      <div class="navbar-nav align-items-center ms-auto">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fa fa-envelope me-lg-2"></i>
+
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0"></div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Blank Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+
+
+        <div class="col-sm-6 col-xl-3">
+          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-line fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <button @click="startTraining" type="button" class="btn btn-success m-2">Start Training</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-bar fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">Status</p>
+                  <h6 class="mb-0">${status}</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-area fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">Action</p>
+                  <h6 class="mb-0">${action}</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-pie fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">Progress</p>
+                  <h6 class="mb-0">${progress} / ${epochs}</h6>
+              </div>
+          </div>
+      </div>
+
+
+
+          <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+              <h6 class="mb-4">Training Parameters</h6>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Learning Rate</th>
+                        <th scope="col" class="text-center">Batch Size</th>
+                        <th scope="col" class="text-center">Epochs</th>
+                        <th scope="col" class="text-center">Merge Interval</th>
+                        <th scope="col" class="text-center">Pretraining</th>
+                        <th scope="col" class="text-center">Dataset</th>
+                        <th scope="col" class="text-center">Aggregation Algorithm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row " class="text-center">0.001</th>
+                        <td class="text-center">64</td>
+                        <td class="text-center">300</td>
+                        <td class="text-center">10</td>
+                        <td class="text-center">false</td>
+                        <td class="text-center">TE</td>
+                        <td class="text-center">FedAvg</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            
+          </div>
+
+          <div class="col-sm-12 col-xl-6">
+              <div class="bg-secondary rounded h-100 p-4">
+                  <h6 class="mb-4">Global Model Accuracy</h6>
+                  <canvas id="line-chart"></canvas>
+              </div>
+          </div>
+
+          <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Collaborators Status</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col" class="text-center">Acoount Name</th>
+                            <th scope="col" class="text-center">State</th>
+                            <th scope="col" class="text-center">Coin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-center">1</th>
+                            <td class="text-center">user1ofIFBDAChain</td>
+                            <td class="text-center">Normal</td>
+                            <td class="text-center">  100 </td>
+                        </tr>
+                        <tr>
+                          <th scope="row" class="text-center">2</th>
+                          <td class="text-center">user3ofIFBDAChain </td>
+                          <td class="text-center">Normal</td>
+                          <td class="text-center">  100 </td>
+                        </tr>
+                        <tr>
+                          <th scope="row" class="text-center">3</th>
+                          <td class="text-center">user4ofIFBDAChain</td>
+                          <td class="text-center">Normal</td>
+                          <td class="text-center"> 100 </td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Blank End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="bg-secondary rounded-top p-4">
+        <div class="row">
+          <div class="col-12 col-sm-6 text-center text-sm-start">
+            &copy; <a href="#">CoTrain</a>, All Right Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+  </div>
+  <!-- Content End -->
+
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/chart/chart.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="js/vue.global.js"></script>
+<script src="js/axios.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+
+
+<!-- <script>
+// Single Line Chart
+var ctx3 = $("#line-chart").get(0).getContext("2d");
+var myChart3 = new Chart(ctx3, {
+    type: "line",
+    data: {
+        // labels: [0, 1],
+        labels: [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
+        datasets: [{
+            label: "Acc",
+            fill: false,
+            backgroundColor: "rgba(235, 22, 22, .7)",
+            // data: [40, 50]
+            data: [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15]
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+</script> -->
+
+
+<script>
+  var chartVar = ""
+
+  const myCoTrain = {
+      delimiters: ['${', '}'],
+      data() {
+          return {
+              startTrainingResponse: "",
+
+              ctx: "",
+              myChart: "",
+              labels: [],
+              data: [],
+
+              status: "Ready",
+              action: "Waiting",
+              progress: 0,
+              epochs: 10,
+
+          }
+      },
+
+      mounted() {
+        this.timer1 = setTimeout(this.initChart, 100);
+        this.timer2 = setInterval(this.updateData, 2000);
+      },
+
+      methods: {
+          // 设置账户信息
+          setAccount() {
+              axios
+                  .get("/accountSetting",{
+                      params: {
+                          accountName:this.accountName,
+                          accountKeyFilePath:this.accountKeyFilePath,
+                          accountKeyPassword:this.accountKeyPassword
+                      }
+                  })
+                  .then(response=>{
+                      console.log(response.data)
+                      this.accountSetting = response.data
+                  })
+                  .catch(function(error){
+                      console.log(error)
+                  });
+              },
+
+          setContract() {
+              axios
+                  .get("/contractSetting",{
+                      params: {
+                          contractName:this.contractName,
+                          contractCodeFilePath:this.contractCodeFilePath,
+                          contractCallOrDeploy:this.contractCallOrDeploy
+                      }
+                  })
+                  .then(response=>{
+                      console.log(response.data)
+                      this.accountSetting = response.data
+                  })
+                  .catch(function(error){
+                      console.log(error)
+                  });
+          },
+          
+          initChart() {
+            this.ctx = $("#line-chart").get(0).getContext("2d");
+            chartVar = new Chart(this.ctx, {
+                type: "line",
+                data: {
+                    labels: this.labels,
+                    datasets: [{
+                        label: "Acc",
+                        fill: false,
+                        backgroundColor: "rgba(235, 22, 22, .7)",
+                        data: this.data
+                      }]
+                  },
+                options: {
+                      responsive: true
+                  }
+              });
+            },
+
+          startTraining() {
+            console.log("start")
+              axios
+                  .get("/startTraining")
+                  .then(response=>{
+                      console.log(response.data)
+                      this.startTrainingResponse = response.data
+                  })
+                  .catch(function(error){
+                      console.log(error)
+                  });
+            },
+          
+            updateData() {
+              console.log("start update")
+              axios
+                  .get("/updateData")
+                  .then(response=>{
+                      console.log(response.data)
+                      this.startTrainingResponse = response.data.split(',')
+                      this.status = this.startTrainingResponse[0]
+                      this.action = this.startTrainingResponse[1]
+                      this.progress = this.startTrainingResponse[2]
+                      this.epochs = this.startTrainingResponse[3]
+                      var temp = this.startTrainingResponse[4].split(' ')
+
+                      console.log(temp)
+
+                      var data_ = []
+                      var labels_ = []
+                    
+                      for(i=0; i<temp.length; i++){
+                        data_.push(temp[i] * 1)
+                        labels_.push(i)
+                      }
+                      console.log(data_)
+                      console.log(labels_)
+                      
+                      chartVar.data.labels = labels_;
+                      chartVar.data.datasets.forEach((dataset) => {
+                            dataset.data = data_;
+                        });
+                      chartVar.update()
+                  })
+                  .catch(function(error){
+                      console.log(error)
+                  });
+            }
+
+      }
+  }
+  Vue.createApp(myCoTrain).mount("#myCoTrain");
+
+
+</script>
+
+
+
+</body>
+
+</html>

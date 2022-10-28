@@ -1,0 +1,39 @@
+
+**************************************************  USER1  *************************************************************
+restUrl = "https://rest.baas.alipay.com"
+accessId = "LABOycAOKiS2088132559930274"
+accessSecretPath = "C:\Users\chengyubin\work\paper2_project\ca\Baas\access.key"
+
+accountName = "user1ofIFBDAChain"
+accountKeyPath = "C:\\Users\\chengyubin\\work\\paper2_project\\ca\\user1\\key\\user.key"
+accountPassword = "123456cyb"
+
+contractName = "cotrain101703"
+contractCodePath = "C:\Users\chengyubin\Desktop\antchain\project\Cpp1004\CoTrain\CoTrain\target\co_train.wasc"
+
+
+**************************************************  USER3  *************************************************************
+restUrl = "https://rest.baas.alipay.com"
+accessId = "LABOycAOKiS2088132559930274"
+accessSecretPath = "C:\Users\chengyubin\work\paper2_project\ca\Baas\access.key"
+
+accountName = "user3ofIFBDAChain"
+accountKeyPath = "C:\\Users\\chengyubin\\work\\paper2_project\\ca\\user3\\key\\user.key"
+accountPassword = "123456cyb"
+
+contractName = "cotrain101703"
+contractCodePath = "C:\Users\chengyubin\Desktop\antchain\project\Cpp1004\CoTrain\CoTrain\target\co_train.wasc"
+
+
+**************************************************  USER4  *************************************************************
+restUrl = "https://rest.baas.alipay.com"
+accessId = "LABOycAOKiS2088132559930274"
+accessSecretPath = "C:\Users\chengyubin\work\paper2_project\ca\Baas\access.key"
+
+accountName = "user4ofIFBDAChain"
+accountKeyPath = "C:\\Users\\chengyubin\\work\\paper2_project\\ca\\user4\\key\\user.key"
+accountPassword = "123456cyb"
+
+contractName = "cotrain101703"
+contractCodePath = "C:\Users\chengyubin\Desktop\antchain\project\Cpp1004\CoTrain\CoTrain\target\co_train.wasc"
+

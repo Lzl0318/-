@@ -1,0 +1,36 @@
+{
+  "platform": "mychain",
+  "language": "c++",
+  "framework": "none",
+  "compilerVersion": "2.19",
+  "testCases": [
+    {
+      "version": 1,
+      "contractName": "co_train.cpp",
+      "test_units": [
+        {
+          "name": "Case1",
+          "key": "1665154144729xhr6j8f",
+          "actions": [
+            {
+              "$id": "uwoe7D9a9SXhPP106smVmXm9A6Ejbdfh",
+              "action": "Call",
+              "name": "",
+              "sender": "1664866151775cq8dagp",
+              "method": "download",
+              "contract": "co_train.cpp",
+              "fixed_id": false,
+              "gas": 0,
+              "local": false,
+              "parameters": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "wasm": {
+    "mycdtCompileOption": "",
+    "mybufferCompileOption": ""
+  }
+}
